@@ -58,6 +58,64 @@ WELCOME_MESSAGES = {
 }
 
 # ---------------------------------------------------------------------------
+# Inline buttons per language
+# ---------------------------------------------------------------------------
+KEYBOARDS = {
+    "en": [
+        [
+            InlineKeyboardButton("𝕏 Follow X", url="https://x.com/RollettoWorld"),
+            InlineKeyboardButton("🎮 Join Discord", url="https://discord.gg/eZzy3HEgus"),
+        ],
+        [
+            InlineKeyboardButton("📸 Follow Instagram", url="https://www.instagram.com/rollettospace/"),
+            InlineKeyboardButton("🎰 Play Now!", url="https://rolletto.space/rollettoworldbot"),
+        ],
+        [
+            InlineKeyboardButton("👉 Join Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+        ],
+    ],
+    "es": [
+        [
+            InlineKeyboardButton("𝕏 Seguir X", url="https://x.com/RollettoWorld"),
+            InlineKeyboardButton("🎮 Unirse a Discord", url="https://discord.gg/eZzy3HEgus"),
+        ],
+        [
+            InlineKeyboardButton("📸 Seguir Instagram", url="https://www.instagram.com/rollettospace/"),
+            InlineKeyboardButton("🎰 ¡Jugar Ahora!", url="https://rolletto.space/rollettoworldbot"),
+        ],
+        [
+            InlineKeyboardButton("👉 ¡Unirse a Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+        ],
+    ],
+    "fr": [
+        [
+            InlineKeyboardButton("𝕏 Suivre X", url="https://x.com/RollettoWorld"),
+            InlineKeyboardButton("🎮 Rejoindre Discord", url="https://discord.gg/eZzy3HEgus"),
+        ],
+        [
+            InlineKeyboardButton("📸 Suivre Instagram", url="https://www.instagram.com/rollettospace/"),
+            InlineKeyboardButton("🎰 Jouer Maintenant!", url="https://rolletto.space/rollettoworldbot"),
+        ],
+        [
+            InlineKeyboardButton("👉 Rejoindre Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+        ],
+    ],
+    "it": [
+        [
+            InlineKeyboardButton("𝕏 Segui X", url="https://x.com/RollettoWorld"),
+            InlineKeyboardButton("🎮 Unisciti a Discord", url="https://discord.gg/eZzy3HEgus"),
+        ],
+        [
+            InlineKeyboardButton("📸 Segui Instagram", url="https://www.instagram.com/rollettospace/"),
+            InlineKeyboardButton("🎰 Gioca Ora!", url="https://rolletto.space/rollettoworldbot"),
+        ],
+        [
+            InlineKeyboardButton("👉 Unisciti a Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+        ],
+    ],
+}
+
+# ---------------------------------------------------------------------------
 # /start command – show language selection first
 # ---------------------------------------------------------------------------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -92,22 +150,8 @@ async def handle_language_choice(update: Update, context: ContextTypes.DEFAULT_T
     user_name = update.effective_user.first_name
     lang = query.data.replace("botlang_", "")  # "botlang_en" → "en"
 
-    keyboard = [
-        [
-            InlineKeyboardButton("𝕏 Follow X", url="https://x.com/RollettoWorld"),
-            InlineKeyboardButton("🎮 Join Discord", url="https://discord.gg/eZzy3HEgus"),
-        ],
-        [
-            InlineKeyboardButton("📸 Follow Instagram", url="https://www.instagram.com/rollettospace/"),
-            InlineKeyboardButton("🎰 Play Now!", url="https://rolletto.space/rollettoworldbot"),
-        ],
-        [
-            InlineKeyboardButton("👉 Join Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
-        ],
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
     welcome_text = WELCOME_MESSAGES[lang].format(name=user_name)
+    reply_markup = InlineKeyboardMarkup(KEYBOARDS[lang])
 
     await query.edit_message_text(
         text=welcome_text,
