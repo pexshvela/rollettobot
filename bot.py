@@ -97,7 +97,7 @@ KEYBOARDS = {
             InlineKeyboardButton("🎰 Jouer Maintenant!", url="https://rolletto.space/rollettoworldbot"),
         ],
         [
-            InlineKeyboardButton("👉 Rejoindre Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+            InlineKeyboardButton("👉 Rejoindre Telegram!", url="https://t.me/+im5vPm28VOY3OTUy"),
         ],
     ],
     "it": [
@@ -110,7 +110,7 @@ KEYBOARDS = {
             InlineKeyboardButton("🎰 Gioca Ora!", url="https://rolletto.space/rollettoworldbot"),
         ],
         [
-            InlineKeyboardButton("👉 Unisciti a Telegram!", url="https://t.me/+-KV8UEJFcv9jMDIy"),
+            InlineKeyboardButton("👉 Unisciti a Telegram!", url="https://t.me/+5rV5GoCjfZdiNTEy"),
         ],
     ],
 }
