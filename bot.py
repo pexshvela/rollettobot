@@ -64,7 +64,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [
             InlineKeyboardButton("🇬🇧 English", callback_data="botlang_en"),
-            InlineKeyboardButton("🇪🇸 Español", callback_data="botlang_es"),,
+            InlineKeyboardButton("🇪🇸 Español", callback_data="botlang_es"),
         ],
         [
             InlineKeyboardButton("🇫🇷 Français", callback_data="botlang_fr"),
